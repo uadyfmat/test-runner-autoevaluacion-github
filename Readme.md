@@ -6,6 +6,12 @@ En este repositorio estaremos hablando de cada uno de los componentes que confor
 - Carpetas de ejercicios.
 - `Package.json` y `test-exercises.sh`
 
+De igual forma hablaremos un sobre como un maestro puede utilizar el template de ejercicios y como un alumno puede ir probando sus soluciones.
+
+## Para el maestro
+
+## Para el alumno
+
 ## Workflows
 
 ---
