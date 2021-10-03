@@ -12,40 +12,9 @@ En este repositorio estaremos hablando de cada uno de los componentes que confor
 
 Los workflows son procesos automatizados configurables formados por uno o más trabajos.  
 Estos archivos trabajan bajo la sintaxis YAML, es por ello que debe de tener una extensión de archivo `.yml` o `.yaml`.  
-Cada uno de estos flujos de trabajo deben de guardarse en el directorio `.github/workflow`.  
-En este template tenemos un archivo de ese estilo el cual contiene lo siguiente:
+Cada uno de estos flujos de trabajo deben de guardarse en el directorio `.github/workflow`.
 
-```txt
-name: CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm ci
-      - run: npm i -g uadyfmat/test-runner
-      - run: npm run build --if-present
-      - run: bash test-exercises.sh
-```
+Para poder ver el contenido de este archivo, puedes dar click en el siguiente [enlace](https://github.com/uadyfmat/Ejemplo-template-de-ejercicios/blob/master/.github/workflows/blank.yml).
 
 En pocas palabras este workflow esta constitudo de 3 secciones:
 
