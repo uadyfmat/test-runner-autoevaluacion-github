@@ -4,7 +4,7 @@ En este repositorio estaremos hablando de cada uno de los componentes que confor
 
 - Los workflows.
 - Carpetas de ejercicios.
-- `Package.json` y `text-exercises.sh`
+- `Package.json` y `test-exercises.sh`
 
 ## Workflows
 
@@ -65,7 +65,7 @@ Para más imformación sobre el paquete de node, consulta [test-runner](https://
 
 ---
 
-Como mencionamos anteriormente este template consta de una serie de ejercicios los cuales deben de cumplir características específicas. Principalmente para que el sistema reconozca que es un ejercicio, la carpeta debe de tener un prefijo, el cual tenemos definido como `E-`, esta característica es fundamental ya que el archivo `text-exercises.sh` detectará dichos ejercicios, los analizará con el paquete [test-runner](https://github.com/uadyfmat/test-runner) y nos dará un resultado de dicha solución.
+Como mencionamos anteriormente este template consta de una serie de ejercicios los cuales deben de cumplir características específicas. Principalmente para que el sistema reconozca que es un ejercicio, la carpeta debe de tener un prefijo, el cual tenemos definido como `E-`, esta característica es fundamental ya que el archivo `test-exercises.sh` detectará dichos ejercicios, los analizará con el paquete [test-runner](https://github.com/uadyfmat/test-runner) y nos dará un resultado de dicha solución.
 
 Una vez concluido con el elemento anterior podemos fijarnos en el contenido de dichas carpetas, estas deben de contener lo siguiente:
 
@@ -85,7 +85,7 @@ El archivo `Solution.extension`, el cual el alumno será el encargado de crear d
 
 Finalmente esta en el archivo `Readme.md` en donde el maestro podrá hablar un poco sobre las caracteristicas del ejercicio, datos de entrada y datos de salida.
 
-## `Package.json` y `text-exercises.sh`
+## `Package.json` y `test-exercises.sh`
 
 ---
 
@@ -94,6 +94,6 @@ Para ir concluyendo hablaremos de los últimos archivos que constituyen este tem
 Primero hablaremos de los archivos `package.json` y `package-lock.json` estos archivos son de estilo dummy
 para que el workflow pueda llevar a cabo la instalación de la paqueteria de node.
 
-Por último tenemos el archivo [text-exercises.sh](https://github.com/uadyfmat/Documentacion-para-ejercicios/blob/main/run.sh)
+Por último tenemos el archivo [test-exercises.sh](https://github.com/uadyfmat/Documentacion-para-ejercicios/blob/master/test-exercises.sh)
 
 El cual es el encargado de ir guardando los resultados de los ejercicios e unos archivos temporales en el entorno de linux que montamos para asi verificar las salidas de los programas.
