@@ -35,4 +35,4 @@ jobs:
       - run: npm ci
       - run: npm i -g uadyfmat/test-runner
       - run: npm run build --if-present
-      - run: bash text-exercises.sh
+      - run: bash test-exercises.sh
