@@ -10,7 +10,38 @@ De igual forma hablaremos un sobre como un maestro puede utilizar el template de
 
 ## Para el maestro
 
+Se le recomienda al maestro ver el siguiente video: [![Tutorial para los maestros](https://github.com/uadyfmat/Documentacion-para-ejercicios/blob/master/imagenes/Portada-maestros.PNG)](https://www.youtube.com/watch?v=clPdSuhGwM4)
+
+Para que con la forma de utilizar este tiempo de herramienta como pueden ser github classroom y como ir armando sus templates desde la UI de github, sin embargo, si tienen experiencia usando el bash, sin problema podrían usarlo.
+
+---
+
 ## Para el alumno
+
+Para comenzar es necesario que tengan instalada la siguiente exentensión de npm
+
+```txt
+npm i -g uadyfmat/test-runner
+```
+
+Para que logren correr sus pruebas de forma local, de igual forma deben de tener instalado todo lo que tenga que ver con git, para poder clonar y modificar sus repositorios.
+
+Para más imformación sobre el paquete de node y de git, consulta [test-runner](https://github.com/uadyfmat/test-runner) y el [manual para github](https://github.com/HerCerM/ManualDefinitivoGit).
+
+Para el alumno es importante que para crear una solución a alguna solución deban de crear un archivo llamado `Solution.extension` ya que de esta forma la paqueteria detecta que existe una solución y la avalua con las respectivas entradas y salidas que existen en la misma carpeta. Entonces la estructura del directorio quedaria de la siguiente forma:
+
+```txt
+.
+└── exercise-name
+    ├── README.md (optional)
+    ├── Solution.java
+    └── spec.inout
+```
+
+Es importante no modificar los demás archivos ya que esto se puede mal interpretar al momento de revisar las soluciones o pueden ocurrir fallos al momento de correr los workflows de github.
+
+De todas formas hemos creado un tutorial en donde se explica como correr sus pruebas.
+[![Tutorial para los alumnos](https://github.com/uadyfmat/Documentacion-para-ejercicios/blob/master/imagenes/Portada-alumno.PNG)](https://www.youtube.com/watch?v=e9aIrrjx3kA)
 
 ## Workflows
 
