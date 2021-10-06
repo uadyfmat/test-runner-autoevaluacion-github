@@ -103,3 +103,11 @@ para que el workflow pueda llevar a cabo la instalación de la paqueteria de nod
 Por último tenemos el archivo [test-exercises.sh](https://github.com/uadyfmat/Documentacion-para-ejercicios/blob/master/test-exercises.sh)
 
 El cual es el encargado de ir guardando los resultados de los ejercicios e unos archivos temporales en el entorno de linux que montamos para asi verificar las salidas de los programas.
+
+## Ejemplos
+
+Para ver los ejemplos de los repositorios pueden ver los siguientes link, para que puedan analizar la organización de las mismas
+
+- [Repositorio de ejercicios de un maestro](https://github.com/uadyfmat/Unidad-l)
+- [Repositorio de un alumno](https://github.com/uadyfmat/unidad-l-JoseBaezaP)
+- [Template para utilzar un githubn classroom](https://github.com/uadyfmat/Template-sin-ejercicios)
