@@ -14,6 +14,8 @@ Se le recomienda al maestro ver el siguiente video: [![Tutorial para los maestro
 
 Para que con la forma de utilizar este tiempo de herramienta como pueden ser github classroom y como ir armando sus templates desde la UI de github, sin embargo, si tienen experiencia usando el bash, sin problema podrían usarlo.
 
+Para más información sobre los archivos para probar entradas y salidas, podría consultar el siguiente [enlace](https://github.com/uadyfmat/test-runner#test-cases-file-specinout)
+
 ---
 
 ## Para el alumno
