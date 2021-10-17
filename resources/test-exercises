@@ -1,0 +1,50 @@
+#!/bin/bash
+
+EXERCISE_DIRECTORIES=$(ls | grep -E "^[0-9]{2}-.+$")
+RESULTS_FILE=results.txt
+EXERCISES_LIST=exercises_list.txt
+
+# For the colors see:
+# https://stackoverflow.com/a/5947802/12591546
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+RESET_COLOR='\033[0m'
+
+directories=0
+exercises=0
+
+for i in ${EXERCISE_DIRECTORIES};
+do
+  directories=$((directories + 1))
+  test-runner -e -s ${i} >> ${RESULTS_FILE}
+
+  if [ $? -eq 0 ]
+  then
+    exercises=$((exercises + 1))
+    printf '%s %s\n' "${GREEN}PASANDO${RESET_COLOR} :" "${i}" >> ${EXERCISES_LIST}
+  else
+    printf '%s %s\n' "${RED}FALLANDO${RESET_COLOR}:" "${i}" >> ${EXERCISES_LIST}
+  fi
+done;
+
+echo -e "\nEjercicios correctos: $exercises/$directories"
+
+echo -e "\nListado de ejercicios"
+echo "====================="
+
+printf "$(cat ./${EXERCISES_LIST})\n"
+
+echo -e "\nCasos de prueba"
+echo "==============="
+cat ./${RESULTS_FILE}
+
+# Clean
+rm -f ./${RESULTS_FILE}
+rm -f ./${EXERCISES_LIST}
+
+if [ $exercises -eq $directories ]
+then
+  exit 0
+else
+  exit 1
+fi

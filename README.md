@@ -1,10 +1,10 @@
-# Test Runner: Documentación adicional
+# Test Runner: Autoevaluación con GitHub
 
 [Test Runner](https://github.com/uadyfmat/test-runner) funciona en directorios con una estructura particular, donde cada uno de estos directorios representa un ejercicio de programación.
 
-Para conseguir un mecanismo de auto-evaluación, se pretende que estos ejercicios se agrupen en repositorios de GitHub, donde cada repositorio tenga varios ejercicios.
+Para conseguir un **mecanismo de auto-evaluación**, se pretende que estos ejercicios se agrupen en repositorios de GitHub con un workflow de GitHub Actions ya configurado. Cada repositorio contiene varios ejercicios.
 
-Aquí se describe lo que los alumnos, profesores y desarrolladores necesitan saber acerca de Test Runner y los repositorios de ejercicios.
+Aquí se describe lo que los alumnos, profesores y desarrolladores necesitan saber acerca de Test Runner respecto a los repositorios de ejercicios.
 
 ## Para alumnos
 
@@ -40,14 +40,8 @@ Es posible que sea necesario modificar la ruta en `"commandline"` y `"icon"`, en
 ```json
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    // Add custom actions and keybindings to this array.
-    // To unbind a key combination from your defaults.json, set the command to "unbound".
-    // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
-    "actions": 
+    "actions":
     [
-        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
-        // These two lines additionally bind them to Ctrl+C and Ctrl+V.
-        // To learn more about selection, visit https://aka.ms/terminal-selection
         {
             "command": 
             {
@@ -60,15 +54,10 @@ Es posible que sea necesario modificar la ruta en `"commandline"` y `"icon"`, en
             "command": "paste",
             "keys": "ctrl+v"
         },
-        // Press Ctrl+Shift+F to open the search box
         {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
-        // Press Alt+Shift+D to open a new pane.
-        // - "split": "auto" makes this pane open in the direction that provides the most surface area.
-        // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
-        // To learn more about panes, visit https://aka.ms/terminal-panes
         {
             "command": 
             {
