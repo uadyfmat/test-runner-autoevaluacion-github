@@ -1,4 +1,4 @@
-# Test Runner: Autoevaluación con GitHub
+# Test Runner: Auto-evaluación con GitHub
 
 [Test Runner](https://github.com/uadyfmat/test-runner) funciona en directorios con una estructura particular, donde cada uno de estos directorios representa un ejercicio de programación.
 
@@ -8,7 +8,13 @@ Aquí se describe lo que los alumnos, profesores y desarrolladores necesitan sab
 
 ## Para alumnos
 
-### Instalación de Test Runner
+Para resolver los ejercicios de programación y poder obtener retroalimentación acerca de las soluciones, se require:
+
+1. Instalar Test Runner y el software del que depende.
+2. Usar Test Runner para probar las soluciones localmente.
+3. Ver en GitHub la auto-evaluación del repositorio.
+
+### 1. Instalación de Test Runner
 
 Antes de utilizar Test Runner, es necesario realizar lo siguiente:
 
@@ -29,7 +35,7 @@ Antes de utilizar Test Runner, es necesario realizar lo siguiente:
     "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
     "name": "Git Bash",
     "startingDirectory": "%USERPROFILE%"
-},
+}
 ```
 
 Es posible que sea necesario modificar la ruta en `"commandline"` y `"icon"`, en caso que no se encuentren ahí el ejecutable o el ícono, aunque por defecto ahí se deberían encontrar.
@@ -134,7 +140,7 @@ Es posible que sea necesario modificar la ruta en `"commandline"` y `"icon"`, en
 
 </details>
 
-### Uso de Test Runner
+### 2. Uso de Test Runner
 
 Teniendo el repositorio de ejercicio propio tras haber aceptado un assignment de GitHub Classroom, es necesario clonarlo con Git y abrirlo en algún editor de texto. Se sugiere [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -150,19 +156,21 @@ Cada directorio de ejercicio tiene la siguiente estructura:
 
 ```txt
 03-palindromos
-├── README.md              // Lo crea el profesor. Aquí se proporciona
-|                          // una descripción acerca del ejercicio.
+├── README.md           // Lo crea el profesor. Aquí se proporciona
+|                       // una descripción acerca del ejercicio.
 |
-├── Solution.java,py,etc.  // Lo crea el estudiante. Es la solución de
-|                          // acuerdo a lo descrito en el README.md.
+├── Solution.java,etc.  // Lo crea el alumno. Es la solución de
+|                       // acuerdo a lo descrito en el README.md.
 |
-└── spec.inout             // Lo crea el profesor, por favor no modificar.
-                           // Indica cuáles son los casos de prueba.
+└── spec.inout          // Lo crea el profesor, por favor no modificar.
+                        // Indica cuáles son los casos de prueba.
 ```
+
+Para el archivo de solución puedes elegir entre alguno de [estos lenguajes](https://github.com/uadyfmat/test-runner#supported-languages).
 
 Tras agregar una solución, Test Runner ya corre los casos de prueba del spec.inout y ofrecer retroalimentación acerca de cuáles pasan y cuáles no.
 
-### Auto-evaluación de los ejercicios en GitHub
+### 3. Auto-evaluación de los ejercicios en GitHub
 
 Tras crear la solución para tus ejercicios y verificar con el Test Runner que son correctas, puedes subir cambios a GitHub donde se auto-evaluarán igualmente usando el Test Runner.
 
@@ -170,25 +178,102 @@ Para realizar esto, crea un commit con tus cambios y realiza push a la rama prin
 
 ### Explicación en video
 
-De ser necesario, puedes ver este video de YouTube donde se explica paso a paso el uso de Test Runner sobre un repo de ejercicios.
-
-Video de YouTube: <https://youtu.be/e9aIrrjx3kA>
+De ser necesario, se ofrece un video de explicación para alumnos: <https://youtu.be/e9aIrrjx3kA>
 
 ## Para profesores
 
-Video en YouTube de explicación para profesores: <https://youtu.be/clPdSuhGwM4>
+Para aplicar ejercicios de programación a alumnos es necesario realizar lo siguiente:
 
-Adicionalmente:
+1. Crear el repositorio de ejercicios.
+2. Agregar los ejercicios al repositorio.
+3. Crear el assignment en GitHub Classroom.
+4. Compartir el assignment con los alumnos.
+5. Al momento de evaluar, ver ejercicios correctos de cada alumno.
 
-- [Explicación del formato de `spec.inout`](https://github.com/uadyfmat/test-runner#test-cases-file-specinout)
+### 1. Crear el repositorio de ejercicios
 
-// TODO: Otros links útiles (repo base para crear ejercicios, plantilla de README.md, etc.)
+El repositorio de ejercicios se crea como cualquier otro repositorio en GitHub, presionando el símbolo de **+** en la barra de navegación y eligiendo _nuevo repositorio_.
+
+Lo importante es seleccionar [`uadyfmat/test-runner-plantilla-base`](https://github.com/uadyfmat/test-runner-plantilla-base) como plantilla del repositorio. Éste contiene el workflow de GitHub Actions que permite la auto-evaluación, ofrece una [plantilla para la descripción de los ejercicio](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/PLANTILLA_README.md) y un [ejemplo de archivo `spec.inout`](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/EJEMPLO_spec.inout).
+
+<p align="center">
+    <img src="./resources/images/base_template_selection.png" width="275px" />
+</p>
+
+En adición que el repo es generado de una plantilla, éste igualmente **debe ser una plantilla**. Para conseguir esto último, diríjase a configuraciones y marque el checkbox de plantilla de su repo recién creado.
+
+<p align="center">
+    <img src="./resources/images/template_checkbox.png" width="675px" />
+</p>
+
+### 2. Agregar ejercicios en el repositorio
+
+Cada ejercicio corresponde a una carpeta nueva en el repositorio. Por lo tanto, agregar ejercicios consiste únicamente en agregar estas carpetas.
+
+Para poder indicar un orden, el nombre de cada una de estas carpetas debe iniciar con dos números, por ejemplo `03-palindromos`. Dentro de cada una de las carpetas es importante colocar un README.md para que los alumnos sepan de qué trata el ejercicio, y un `spec.inout`, para que la herramienta Test Runner tenga casos de prueba contra los cuales probar la solución de los alumnos.
+
+```txt
+03-palindromos
+├── README.md           // Lo crea el profesor. Aquí se proporciona
+|                       // una descripción acerca del ejercicio.
+|
+└── spec.inout          // Lo crea el profesor. Indica cuáles son
+                        // los casos de prueba del ejercicio.
+```
+
+- La estructura del `README.md` es libre, sin embargo se ofrece una [plantilla de guía](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/PLANTILLA_README.md).
+- La estructura del `spec.inout` [está documentada](https://github.com/uadyfmat/test-runner#test-cases-file-specinout), igualmente se ofrece un [ejemplo de un `spec.inout` válido](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/EJEMPLO_spec.inout).
+
+Para crear los directorios puede utilizar la interfaz gráfica de GitHub o bien clonar el repositorio y usar su editor de texto de preferencia. Todos los cambios se deben hacer sobre la rama principal: `main`.
+
+Tras añadir los ejercicios, el repositorio se debe ver como el ejemplo [`uadyfmat/ejemplo-progr-estructurada-u1`](https://github.com/uadyfmat/ejemplo-progr-estructurada-u1). Es correcto que el workflow esté fallando, tras que el alumno añada sus soluciones debe pasar.
+
+### 3. Crear el assignment en GitHub Classroom
+
+Al presionar el botón de crear assignment en su GitHub Classroom, se inicia el proceso de creación, el cual consta de 3 vistas.
+
+En la primera vista sólo es necesario colocar el título del assignment.
+
+En la segunda vista es necesario indicar la plantilla del assignment. Se selecciona el repositorio con los ejercicios.
+
+<p align="center">
+    <img src="./resources/images/gh_classroom_template_selection.png" width="675px" />
+</p>
+
+En la última vista sólo se presiona el botón de crear el assignment.
+
+### 4. Compartir el assignment con los alumnos
+
+Para compartir el assignment basta con compartir el URL de invitación del mismo. En el classroom, diríjase al assignment creado, copie el URL y distribúyalo por el medio que considere más conveniente.
+
+<p align="center">
+    <img src="./resources/images/assignment_invitation_link.png" width="675px" />
+</p>
+
+### 5. Ver ejercicios correctos por alumno
+
+Para revisar qué ejercicios tiene correctos los alumnos, actualmente es necesario entrar al repositorio de cada alumno, uno por uno.
+
+<p align="center">
+    <img src="./resources/images/gh_classroom_student_repo.png" width="675px" />
+</p>
+
+Una vez en el repositorio de un alumno, en la pestaña "Actions" en "Run bash test-exercises" se puede consultar la información de la última auto-evaluación.
+
+<p align="center">
+    <img src="./resources/images/gh_autograding_output.png" width="675px" />
+</p>
+
+
+### Explicación en video
+
+De ser necesario, se ofrece un video de explicación para profesores: <https://youtu.be/clPdSuhGwM4>
 
 ## Para desarrolladores
 
 ### Proyecto Test Runner
 
-Repositorio de Test Runner: <https://github.com/uadyfmat/test-runner>
+Repositorio de Test Runner, incluyendo código y documentación: <https://github.com/uadyfmat/test-runner>
 
 ### Workflows
 
@@ -196,7 +281,7 @@ Los workflows son procesos automatizados configurables formados por uno o más t
 Estos archivos trabajan bajo la sintaxis YAML, es por ello que debe de tener una extensión de archivo `.yml` o `.yaml`.  
 Cada uno de estos flujos de trabajo deben de guardarse en el directorio `.github/workflow`.
 
-Para poder ver el contenido de este archivo, puedes dar click en el siguiente [enlace](https://github.com/uadyfmat/Ejemplo-template-de-ejercicios/blob/master/.github/workflows/blank.yml).
+Para poder ver el contenido de este archivo, puedes dar click en el siguiente [enlace](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/.github/workflows/default.yml).
 
 En pocas palabras este workflow esta constitudo de 3 secciones:
 
@@ -240,14 +325,6 @@ Para ir concluyendo hablaremos de los últimos archivos que constituyen este tem
 Primero hablaremos de los archivos `package.json` y `package-lock.json` estos archivos son de estilo dummy
 para que el workflow pueda llevar a cabo la instalación de la paqueteria de node.
 
-Por último tenemos el archivo [test-exercises.sh](https://github.com/uadyfmat/Documentacion-para-ejercicios/blob/master/test-exercises.sh)
+Por último tenemos el archivo [test-exercises](./resources/test-exercises)
 
 El cual es el encargado de ir guardando los resultados de los ejercicios e unos archivos temporales en el entorno de linux que montamos para asi verificar las salidas de los programas.
-
-### Ejemplos
-
-Para ver los ejemplos de los repositorios pueden ver los siguientes link, para que puedan analizar la organización de las mismas
-
-- [Repositorio de ejercicios de un maestro](https://github.com/uadyfmat/Unidad-l)
-- [Repositorio de un alumno](https://github.com/uadyfmat/unidad-l-JoseBaezaP)
-- [Template para utilzar un githubn classroom](https://github.com/uadyfmat/Template-sin-ejercicios)
