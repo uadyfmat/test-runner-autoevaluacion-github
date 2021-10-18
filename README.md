@@ -174,7 +174,17 @@ Tras agregar una solución, Test Runner ya corre los casos de prueba del spec.in
 
 Tras crear la solución para tus ejercicios y verificar con el Test Runner que son correctas, puedes subir cambios a GitHub donde se auto-evaluarán igualmente usando el Test Runner.
 
-Para realizar esto, crea un commit con tus cambios y realiza push a la rama principal. En GitHub, al lado de tu último commit verás una palomita o tachita. Da click en ella, luego en "Details" y abre el apartado que lee `Run bash test-exercises`.
+Para realizar esto, crea un commit con tus cambios y realiza push a la rama principal. En GitHub, al lado de tu último commit verás una palomita o tachita. Da click en ella, luego en "Details" y abre el apartado que lee `Run bash test-exercises`; ahí podrás observar cuáles ejercicios tienen una solución correcta y cuáles no. Esto es lo que el profesor verá al calificar.
+
+<p align="center">
+    <img src="./resources/images/gh_autograding_output.png" width="675px" />
+</p>
+
+ℹ Si deseas correr el mismo script que se corre en GitHub Actions (que igualmente usa Test Runner) para probar todos los ejercicios, puedes ejecutar el siguiente comando en la terminal abierta en la raíz del repositorio de ejercicios. Esto es equivalente a correr Test Runner manualmente sobre cada carpeta de ejercicio.
+
+```text
+curl -o- https://raw.githubusercontent.com/uadyfmat/test-runner-autoevaluacion-github/main/resources/test-exercises | bash
+```
 
 ### Explicación en video
 
@@ -258,7 +268,7 @@ Para revisar qué ejercicios tiene correctos los alumnos, actualmente es necesar
     <img src="./resources/images/gh_classroom_student_repo.png" width="675px" />
 </p>
 
-Una vez en el repositorio de un alumno, en la pestaña "Actions" en "Run bash test-exercises" se puede consultar la información de la última auto-evaluación.
+Una vez en el repositorio de un alumno, en la pestaña "Actions" en `Run bash test-exercises` se puede consultar la información de la última auto-evaluación.
 
 <p align="center">
     <img src="./resources/images/gh_autograding_output.png" width="675px" />
@@ -275,11 +285,9 @@ De ser necesario, se ofrece un video de explicación para profesores: <https://y
 
 Repositorio de Test Runner, incluyendo código y documentación: <https://github.com/uadyfmat/test-runner>
 
-### Workflows
+### Workflow de GitHub Actions
 
-Los workflows son procesos automatizados configurables formados por uno o más trabajos.  
-Estos archivos trabajan bajo la sintaxis YAML, es por ello que debe de tener una extensión de archivo `.yml` o `.yaml`.  
-Cada uno de estos flujos de trabajo deben de guardarse en el directorio `.github/workflow`.
+Los workflows son procesos automatizados configurables formados por uno o más trabajos. Estos archivos trabajan bajo la sintaxis YAML, es por ello que debe de tener una extensión de archivo `.yml` o `.yaml`. Cada uno de estos flujos de trabajo deben de guardarse en el directorio `.github/workflow`.
 
 Para poder ver el contenido de este archivo, puedes dar click en el siguiente [enlace](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/.github/workflows/default.yml).
 
@@ -291,40 +299,14 @@ En pocas palabras este workflow esta constitudo de 3 secciones:
   - El cual se encarga de montar nuestro entorno virtual, el cual puede ser linux, mac o windows.
   - En este apartado igual se pueden definir cada uno de los pasos que se llevarán acabo.
 
-Como podemos observar este workflow tiene unos steps fundamentales, los cuales nos ayudarán a llevar a cabo este trabajo de automatización.  
+Como podemos observar este workflow tiene unos steps fundamentales, los cuales nos ayudarán a llevar a cabo este trabajo de automatización.
+
 En primera instancia como estaremos trabajando con distintas paqueterias de Node, tenemos que montar en nuestro entorno virtual todo el setup de node, en el cual podemos especificar una version para utilizar y asi instalar lo necesario.
+
 Por otro lado tenemos los `steps` los cuales son pieza fundamental en esto ya que para este trabajo, necesitamos instalar una paquetería de node, la cual fue desarrollada por alumnos de la Universidad Autónoma de Yucatán, para luego correr un archivo `bash` que nos ayuda a ir ejecutando cada una de las soluciones a los ejercicios creados en este repositorio.
 
+### `test-exercises`
 
-### Carpetas de ejercicios
+[test-exercises](./resources/test-exercises) es un script de Bash utilizado para ejecutar Test Runner sobre todos los ejercicios de un repositorio; es usado por el [workflow]((https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/.github/workflows/default.yml)) de la plantilla base de ejercicios.
 
-Como mencionamos anteriormente este template consta de una serie de ejercicios los cuales deben de cumplir características específicas. Principalmente para que el sistema reconozca que es un ejercicio, la carpeta debe de tener un prefijo, el cual tenemos definido como `E-`, esta característica es fundamental ya que el archivo `test-exercises.sh` detectará dichos ejercicios, los analizará con el paquete [test-runner](https://github.com/uadyfmat/test-runner) y nos dará un resultado de dicha solución.
-
-Una vez concluido con el elemento anterior podemos fijarnos en el contenido de dichas carpetas, estas deben de contener lo siguiente:
-
-```txt
-.
-└── E-EntreLimites
-    ├── README.md (optional)
-    ├── Solution.java
-    └── spec.inout
-```
-
-Como podemos ver los ejercicios deben contener 3 archivos, de los cuales 2 son muy necesarios, el `spec.inout` es en donde el profesor tendrá que definir las entradas y salidas para dicho ejercicio.
-
-Para más información, consulta [archivo spec.inout](https://github.com/uadyfmat/test-runner#test-cases-file-specinout).
-
-El archivo `Solution.extension`, el cual el alumno será el encargado de crear dicho archivo.
-
-Finalmente esta en el archivo `Readme.md` en donde el maestro podrá hablar un poco sobre las caracteristicas del ejercicio, datos de entrada y datos de salida.
-
-### `Package.json` y `test-exercises.sh`
-
-Para ir concluyendo hablaremos de los últimos archivos que constituyen este template de ejercicios.
-
-Primero hablaremos de los archivos `package.json` y `package-lock.json` estos archivos son de estilo dummy
-para que el workflow pueda llevar a cabo la instalación de la paqueteria de node.
-
-Por último tenemos el archivo [test-exercises](./resources/test-exercises)
-
-El cual es el encargado de ir guardando los resultados de los ejercicios e unos archivos temporales en el entorno de linux que montamos para asi verificar las salidas de los programas.
+Con el objetivo de honrar el principio de _single source of truth_, este script se encuentra únicamente en este repositorio y los demás que lo utilizan lo descargan por medio de `curl`.
