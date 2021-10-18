@@ -6,7 +6,13 @@ Para conseguir un **mecanismo de auto-evaluación**, se pretende que estos ejerc
 
 Aquí se describe lo que los alumnos, profesores y desarrolladores necesitan saber acerca de Test Runner respecto a los repositorios de ejercicios.
 
-## Para alumnos
+🗺 Índice de contenidos:
+
+- [Documentación para **alumnos**](#para-alumnos)
+- [Documentación para **profesores**](#para-profesores)
+- [Documentación para **desarrolladores**](#para-desarrolladores)
+
+## <a name="para-alumnos">Para alumnos</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
 Para resolver los ejercicios de programación y poder obtener retroalimentación acerca de las soluciones, se require:
 
@@ -190,7 +196,7 @@ curl -o- https://raw.githubusercontent.com/uadyfmat/test-runner-autoevaluacion-g
 
 De ser necesario, se ofrece un video de explicación para alumnos: <https://youtu.be/e9aIrrjx3kA>
 
-## Para profesores
+## <a name="para-profesores">Para profesores</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
 Para aplicar ejercicios de programación a alumnos es necesario realizar lo siguiente:
 
@@ -279,7 +285,7 @@ Una vez en el repositorio de un alumno, en la pestaña "Actions" en `Run bash te
 
 De ser necesario, se ofrece un video de explicación para profesores: <https://youtu.be/clPdSuhGwM4>
 
-## Para desarrolladores
+## <a name="para-desarrolladores">Para desarrolladores</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
 ### Proyecto Test Runner
 
