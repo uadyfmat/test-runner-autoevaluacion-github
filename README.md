@@ -281,9 +281,9 @@ Una vez en el repositorio de un alumno, en la pestaña "Actions" en `Run bash te
 </p>
 
 
-### Explicación en video
+[//]: <> (### Explicación en video)
 
-De ser necesario, se ofrece un video de explicación para profesores: <https://youtu.be/clPdSuhGwM4>
+[//]: <> (De ser necesario, se ofrece un video de explicación para profesores: <https://youtu.be/clPdSuhGwM4>)
 
 ## <a name="para-desarrolladores">Para desarrolladores</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
