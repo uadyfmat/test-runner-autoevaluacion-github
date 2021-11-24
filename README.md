@@ -199,14 +199,26 @@ Para aplicar ejercicios de programación a alumnos es necesario realizar lo sigu
 4. Compartir el assignment con los alumnos.
 5. Al momento de evaluar, ver ejercicios correctos de cada alumno.
 
+A continuación se describe el proceso a seguir por cada paso. Alternativamente, igual puede referirse a esta explicación en video: <https://youtu.be/roAd5zSw-Os>
+
 ### 1. Crear el repositorio de ejercicios
+
+Primero, es necesario haber iniciado sesión en GitHub con su cuenta personal. En caso que no tenga cuenta, es necesario crearla.
 
 El repositorio de ejercicios se crea como cualquier otro repositorio en GitHub, presionando el símbolo de **+** en la barra de navegación y eligiendo _nuevo repositorio_.
 
-Lo importante es seleccionar [`uadyfmat/test-runner-plantilla-base`](https://github.com/uadyfmat/test-runner-plantilla-base) como plantilla del repositorio. Éste contiene el workflow de GitHub Actions que permite la auto-evaluación, ofrece una [plantilla para la descripción de los ejercicio](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/PLANTILLA_README.md) y un [ejemplo de archivo `spec.inout`](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/EJEMPLO_spec.inout).
+Es importante considerar lo siguiente:
+
+- Seleccionar [`uadyfmat/test-runner-plantilla-base`](https://github.com/uadyfmat/test-runner-plantilla-base) como plantilla del repositorio. Éste contiene el workflow de GitHub Actions que permite la auto-evaluación, ofrece una [plantilla para la descripción de los ejercicio](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/PLANTILLA_README.md) y un [ejemplo de archivo `spec.inout`](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/EJEMPLO_spec.inout).
 
 <p align="center">
     <img src="./resources/images/base_template_selection.png" width="275px" />
+</p>
+
+- Seleccionar **uadyfmat** como dueño del repositorio. Esto hace que el repositorio pertenezca a la organización de GitHub de FMAT. En caso que no vea la opción para seleccionar la organización, es necesario contactarse con Edgar Cambranes para que agregue su cuenta de GitHub a la organización.
+
+<p align="center">
+    <img src="./resources/images/repo_owner_selection.png" width="425px" />
 </p>
 
 En adición que el repo es generado de una plantilla, éste igualmente **debe ser una plantilla**. Para conseguir esto último, diríjase a configuraciones y marque el checkbox de plantilla de su repo recién creado.
@@ -217,9 +229,11 @@ En adición que el repo es generado de una plantilla, éste igualmente **debe se
 
 ### 2. Agregar ejercicios en el repositorio
 
-Cada ejercicio corresponde a una carpeta nueva en el repositorio. Por lo tanto, agregar ejercicios consiste únicamente en agregar estas carpetas.
+Cada ejercicio corresponde a una carpeta nueva en el repositorio. Por lo tanto, agregar ejercicios consiste en agregar estas carpetas, cada una de las cuales debe tener un archivo **README.md** y un **spec.inout**.
 
-Para poder indicar un orden, el nombre de cada una de estas carpetas debe iniciar con dos números, por ejemplo `03-palindromos`. Dentro de cada una de las carpetas es importante colocar un README.md para que los alumnos sepan de qué trata el ejercicio, y un `spec.inout`, para que la herramienta Test Runner tenga casos de prueba contra los cuales probar la solución de los alumnos.
+Para poder indicar un orden de los ejercicios, el nombre de cada una de estas carpetas debe iniciar con dos números seguido de un guión alto y el nombre del ejercicio, por ejemplo `03-palindromos`. Dentro de cada una de las carpetas es importante colocar un archivo nombrado README.md, para que los alumnos sepan de qué trata el ejercicio, y otro archivo nombrado `spec.inout`, para que la herramienta Test Runner tenga casos de prueba contra los cuales probar la solución de los alumnos.
+
+Por cada carpeta de ejercicio (que en este caso es 03-palindromos de ejemplo) así se debe ver la organización de archivos:
 
 ```txt
 03-palindromos
@@ -233,27 +247,49 @@ Para poder indicar un orden, el nombre de cada una de estas carpetas debe inicia
 - La estructura del `README.md` es libre, sin embargo se ofrece una [plantilla de guía](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/PLANTILLA_README.md).
 - La estructura del `spec.inout` [está documentada](https://github.com/uadyfmat/test-runner#test-cases-file-specinout), igualmente se ofrece un [ejemplo de un `spec.inout` válido](https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/EJEMPLO_spec.inout).
 
-Para crear los directorios puede utilizar la interfaz gráfica de GitHub o bien clonar el repositorio y usar su editor de texto de preferencia. Todos los cambios se deben hacer sobre la rama principal: `main`.
+Para crear los directorios y archivos, puede utilizar la interfaz gráfica de GitHub o bien clonar el repositorio y usar su editor de texto de preferencia. **Nosotros recomendamos usar la interfaz gráfica de GitHub**. Todos los cambios se deben hacer sobre la rama principal: `main`.
+
+En el [video de explicación](https://youtu.be/roAd5zSw-Os) puede ver una demostración de cómo se crean los ejercicios usando la interfaz gráfica de GitHub.
 
 Tras añadir los ejercicios, el repositorio se debe ver como el ejemplo [`uadyfmat/ejemplo-progr-estructurada-u1`](https://github.com/uadyfmat/ejemplo-progr-estructurada-u1). Es correcto que el workflow esté fallando, tras que el alumno añada sus soluciones debe pasar.
 
 ### 3. Crear el assignment en GitHub Classroom
 
-Al presionar el botón de crear assignment en su GitHub Classroom, se inicia el proceso de creación, el cual consta de 3 vistas.
+Dirígase a <https://classroom.github.com/>, y si no tiene su sesión iniciada (no ve su foto de perfil en la parte superior derecha), inicie sesión con su cuenta personal de GitHub, que es la misma que usó para los pasos 1 y 2.
+
+Si no tiene un classroom ya creado en el cual quiera colocar los ejercicios, presione el botón de **New Classroom** para crear uno nuevo y seleccione **uadyfmat** como la organización. El nombre del classroom es libre, pero idealmente hace referencia a su asignatura, por ejemplo "programación-estructurada".
+
+<p align="center">
+    <img src="./resources/images/gh_classroom_new_classroom_button.png" width="675px" />
+</p>
+
+Tras tener un classroom creado, entre al mismo y presione el botón de **New Assignment**, con esto se inicia el proceso de creación, el cual consta de 3 vistas.
 
 En la primera vista sólo es necesario colocar el título del assignment.
 
-En la segunda vista es necesario indicar la plantilla del assignment. Se selecciona el repositorio con los ejercicios.
+<p align="center">
+    <img src="./resources/images/gh_classroom_create_view_1.png" width="650px" />
+</p>
+
+En la segunda vista es necesario indicar la plantilla del assignment. Se selecciona el repositorio **que usted creó** con sus ejercicios (el creado en el paso 1). En la siguiente captura de pantalla, se muestra de ejemplo `uadyfmat/ejemplo-progr-estructurada-u1`.
 
 <p align="center">
-    <img src="./resources/images/gh_classroom_template_selection.png" width="675px" />
+    <img src="./resources/images/gh_classroom_create_view_2.png" width="650px" />
 </p>
+
 
 En la última vista sólo se presiona el botón de crear el assignment.
 
+<p align="center">
+    <img src="./resources/images/gh_classroom_create_view_3.png" width="650px" />
+</p>
+
+
 ### 4. Compartir el assignment con los alumnos
 
-Para compartir el assignment basta con compartir el URL de invitación del mismo. En el classroom, diríjase al assignment creado, copie el URL y distribúyalo por el medio que considere más conveniente.
+Una vez creado el assignment, sigue compartirlo con los alumnos para que puedan empezar a resolverlo.
+
+Entre al assignment que creó. Para compartirlo basta con compartir el URL de invitación del mismo. Copie el URL y distribúyalo por el medio que considere más conveniente.
 
 <p align="center">
     <img src="./resources/images/assignment_invitation_link.png" width="675px" />
@@ -261,21 +297,29 @@ Para compartir el assignment basta con compartir el URL de invitación del mismo
 
 ### 5. Ver ejercicios correctos por alumno
 
-Para revisar qué ejercicios tiene correctos los alumnos, actualmente es necesario entrar al repositorio de cada alumno, uno por uno.
+Los alumnos que hayan dado click al URL que usted les compartió y hayan aceptado la invitación al assignment, empezarán a aparecer en la sección debajo de **Assignment submissions**. En la captura inferior, HerCerM es el único alumno que ha aceptado la invitación.
+
+Para revisar qué ejercicios tienen correctos los alumnos, actualmente es necesario entrar al repositorio de cada alumno, uno por uno, presionando el botón de **Go to repo**.
 
 <p align="center">
     <img src="./resources/images/gh_classroom_student_repo.png" width="675px" />
 </p>
 
-Una vez en el repositorio de un alumno, en la pestaña "Actions" en `Run bash test-exercises` se puede consultar la información de la última auto-evaluación.
+Una vez en el repositorio de un alumno, se puede consultar la información de la última auto-evaluación al presionar la palomita o tachita, seguido de **Details**.
+
+<p align="center">
+    <img src="./resources/images/see_ci_results.png" width="675px" />
+</p>
+
+Luego, expanda el apartado titulado **Run bash test-exercises** para ver el resultado de la auto-evaluación.
 
 <p align="center">
     <img src="./resources/images/gh_autograding_output.png" width="675px" />
 </p>
 
-### Explicación en video)
+El repositorio de las capturas de pantalla lo puede encontrar en el siguiente URL, donde podrá ver el resultado de la auto-evaluación y así tener una noción más práctica de cómo encontrarlo.
 
-De ser necesario, se ofrece un video de explicación para profesores: <https://youtu.be/roAd5zSw-Os>
+<https://github.com/uadyfmat/programacion-estructurada-unidad-1-HerCerM>
 
 ## <a name="para-desarrolladores">Para desarrolladores</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
