@@ -51,96 +51,89 @@ Es posible que sea necesario modificar la ruta en `"commandline"` y `"icon"`, en
 
 ```json
 {
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
-    [
-        {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
-        },
-        {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
-        }
-    ],
-    "copyFormatting": "none",
-    "copyOnSelect": false,
-    "defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
-    "profiles": 
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": [
     {
-        "defaults": 
-        {
-            "closeOnExit": "always",
-            "colorScheme": "deep",
-            "fontFace": "Consolas"
-        },
-        "list":
-        [
-            {
-                "commandline": "%PROGRAMFILES%/git/usr/bin/bash.exe -i -l",
-                "guid": "{00000000-0000-0000-ba54-000000000002}",
-                "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
-                "name": "Git Bash",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "commandline": "cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "S\u00edmbolo del sistema"
-            },
-            {
-                "commandline": "powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            }
-        ]
+      "command": {
+        "action": "copy",
+        "singleLine": false
+      },
+      "keys": "ctrl+c"
     },
-    "schemes": 
-    [
-        {
-            "background": "#090909",
-            "black": "#000000",
-            "blue": "#5665FF",
-            "brightBlack": "#535353",
-            "brightBlue": "#9FA9FF",
-            "brightCyan": "#8DF9FF",
-            "brightGreen": "#22FF18",
-            "brightPurple": "#E09AFF",
-            "brightRed": "#FB0007",
-            "brightWhite": "#FFFFFF",
-            "brightYellow": "#FEDC2B",
-            "cursorColor": "#D0D0D0",
-            "cyan": "#50D2DA",
-            "foreground": "#CDCDCD",
-            "green": "#1CD915",
-            "name": "deep",
-            "purple": "#B052DA",
-            "red": "#D70005",
-            "selectionBackground": "#D2D2D2",
-            "white": "#E0E0E0",
-            "yellow": "#D9BD26"
-        }
-    ],
-    "theme": "dark"
+    {
+      "command": "paste",
+      "keys": "ctrl+v"
+    },
+    {
+      "command": "find",
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "auto",
+        "splitMode": "duplicate"
+      },
+      "keys": "alt+shift+d"
+    }
+  ],
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
+  "profiles": {
+    "defaults": {
+      "closeOnExit": "always",
+      "colorScheme": "deep",
+      "fontFace": "Consolas"
+    },
+    "list": [
+      {
+        "commandline": "%PROGRAMFILES%/git/usr/bin/bash.exe -i -l",
+        "guid": "{00000000-0000-0000-ba54-000000000002}",
+        "icon": "%PROGRAMFILES%/Git/mingw64/share/git/git-for-windows.ico",
+        "name": "Git Bash",
+        "startingDirectory": "%USERPROFILE%"
+      },
+      {
+        "commandline": "cmd.exe",
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "S\u00edmbolo del sistema"
+      },
+      {
+        "commandline": "powershell.exe",
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "background": "#090909",
+      "black": "#000000",
+      "blue": "#5665FF",
+      "brightBlack": "#535353",
+      "brightBlue": "#9FA9FF",
+      "brightCyan": "#8DF9FF",
+      "brightGreen": "#22FF18",
+      "brightPurple": "#E09AFF",
+      "brightRed": "#FB0007",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#FEDC2B",
+      "cursorColor": "#D0D0D0",
+      "cyan": "#50D2DA",
+      "foreground": "#CDCDCD",
+      "green": "#1CD915",
+      "name": "deep",
+      "purple": "#B052DA",
+      "red": "#D70005",
+      "selectionBackground": "#D2D2D2",
+      "white": "#E0E0E0",
+      "yellow": "#D9BD26"
+    }
+  ],
+  "theme": "dark"
 }
 ```
 
@@ -280,10 +273,9 @@ Una vez en el repositorio de un alumno, en la pestaña "Actions" en `Run bash te
     <img src="./resources/images/gh_autograding_output.png" width="675px" />
 </p>
 
+### Explicación en video)
 
-[//]: <> (### Explicación en video)
-
-[//]: <> (De ser necesario, se ofrece un video de explicación para profesores: <https://youtu.be/clPdSuhGwM4>)
+De ser necesario, se ofrece un video de explicación para profesores: <https://youtu.be/roAd5zSw-Os>
 
 ## <a name="para-desarrolladores">Para desarrolladores</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
@@ -313,6 +305,6 @@ Por otro lado tenemos los `steps` los cuales son pieza fundamental en esto ya qu
 
 ### `test-exercises`
 
-[test-exercises](./resources/test-exercises) es un script de Bash utilizado para ejecutar Test Runner sobre todos los ejercicios de un repositorio; es usado por el [workflow]((https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/.github/workflows/default.yml)) de la plantilla base de ejercicios.
+[test-exercises](./resources/test-exercises) es un script de Bash utilizado para ejecutar Test Runner sobre todos los ejercicios de un repositorio; es usado por el [workflow](<(https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/.github/workflows/default.yml)>) de la plantilla base de ejercicios.
 
 Con el objetivo de honrar el principio de _single source of truth_, este script se encuentra únicamente en este repositorio y los demás que lo utilizan lo descargan por medio de `curl`.
