@@ -215,7 +215,7 @@ Es importante considerar lo siguiente:
     <img src="./resources/images/base_template_selection.png" width="275px" />
 </p>
 
-- Seleccionar **uadyfmat** como dueño del repositorio. Esto hace que el repositorio pertenezca a la organización de GitHub de FMAT. En caso que no vea la opción para seleccionar la organización, es necesario contactarse con Edgar Cambranes para que agregue su cuenta de GitHub a la organización.
+- Seleccionar **uadyfmat** como dueño del repositorio. Esto hace que el repositorio pertenezca a la organización de GitHub de FMAT. En caso que no vea la opción para seleccionar la organización, es necesario contactarse con Edgar Cambranes para que agregue su cuenta de GitHub a la organización y le coloque el rol de **Owner**.
 
 <p align="center">
     <img src="./resources/images/repo_owner_selection.png" width="425px" />
