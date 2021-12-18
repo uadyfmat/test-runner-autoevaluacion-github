@@ -181,7 +181,7 @@ Para realizar esto, crea un commit con tus cambios y realiza push a la rama prin
     <img src="./resources/images/gh_autograding_output.png" width="675px" />
 </p>
 
-ℹ Si deseas correr el mismo script que se corre en GitHub Actions (que igualmente usa Test Runner) para probar todos los ejercicios, puedes ejecutar el siguiente comando en la terminal abierta en la raíz del repositorio de ejercicios. Esto es equivalente a correr Test Runner manualmente sobre cada carpeta de ejercicio.
+Si deseas correr el mismo script que se corre en GitHub Actions (que igualmente usa Test Runner) para probar todos los ejercicios, puedes ejecutar el siguiente comando en la terminal abierta en la raíz del repositorio de ejercicios. Esto es equivalente a correr Test Runner manualmente sobre cada carpeta de ejercicio.
 
 ```text
 curl -o- https://raw.githubusercontent.com/uadyfmat/test-runner-autoevaluacion-github/main/resources/test-exercises | bash
@@ -191,7 +191,7 @@ curl -o- https://raw.githubusercontent.com/uadyfmat/test-runner-autoevaluacion-g
 
 Para aplicar ejercicios de programación a alumnos es necesario realizar lo siguiente:
 
-1. Crear el repositorio de ejercicios.
+1. Crear el repositorio de ejercicios en GitHub.
 2. Agregar los ejercicios al repositorio.
 3. Crear el assignment en GitHub Classroom.
 4. Compartir el assignment con los alumnos.
@@ -199,7 +199,16 @@ Para aplicar ejercicios de programación a alumnos es necesario realizar lo sigu
 
 🎥 Puede referirse a una **[explicación en video](https://youtu.be/roAd5zSw-Os)** donde se abarcan los pasos, o alternativamente a continuación se describe cada paso.
 
-### 1. Crear el repositorio de ejercicios
+### 1. Crear el repositorio de ejercicios en GitHub
+
+<table>
+  <tr>
+    <td>
+ℹ GitHub es una plataforma para almacenar, explorar, gestionar y colaborar en repositorios del sistema de control de versiones «Git». Usualmente, al trabajar con estos repositorios, se descargan localmente y realizan ediciones en un editor de texto de preferencia. Tras tener cambios que se quieran compartir, se usa la herramienta de línea de comandos de Git para empujar cambios a GitHub.<br/><br/>
+Para el profesor, se considera que el flujo de trabajo no sea este, sino que basta con utilizar la <strong>interfaz gráfica de GitHub</strong> para realizar todos los pasos. Aunque de ser de su preferencia, es posible realizar las ediciones localmente.
+    </td>
+  </tr>
+</table>
 
 Primero, es necesario haber iniciado sesión en GitHub con su cuenta personal. En caso que no tenga cuenta, es necesario crearla.
 
@@ -247,13 +256,21 @@ Por cada carpeta de ejercicio (que en este caso es 03-palindromos de ejemplo) as
 
 Para crear los directorios y archivos, puede utilizar la interfaz gráfica de GitHub o bien clonar el repositorio y usar su editor de texto de preferencia. **Nosotros recomendamos usar la interfaz gráfica de GitHub**. Todos los cambios se deben hacer sobre la rama principal: `main`.
 
-En el **[video de explicación](https://youtu.be/roAd5zSw-Os)** puede ver una demostración de cómo se crean los ejercicios usando la interfaz gráfica de GitHub.
+🎥 En el **[video de explicación](https://youtu.be/roAd5zSw-Os)** puede ver una demostración de cómo se crean los ejercicios usando la interfaz gráfica de GitHub.
 
 Tras añadir los ejercicios, el repositorio se debe ver como el ejemplo [`uadyfmat/ejemplo-progr-estructurada-u1`](https://github.com/uadyfmat/ejemplo-progr-estructurada-u1). Es correcto que el workflow esté fallando, tras que el alumno añada sus soluciones debe pasar.
 
 ### 3. Crear el assignment en GitHub Classroom
 
-Dirígase a <https://classroom.github.com/>, y si no tiene su sesión iniciada (no ve su foto de perfil en la parte superior derecha), inicie sesión con su cuenta personal de GitHub, que es la misma que usó para los pasos 1 y 2.
+<table>
+  <tr>
+    <td>
+ℹ GitHub Classroom es una plataforma en la cual se pueden crear tareas (<i>assignments</i>) de programación asociadas a un curso (<i>classroom</i>). Cada una de estas tareas parte de un repositorio plantilla de GitHub (en este caso, el creado en el paso 1). Cuando un alumno acepta la tarea, se le crea su propio repositorio que inicia en el estado de la plantilla. Aquí, el alumno trabaja para entregar su solución.
+    </td>
+  </tr>
+</table>
+
+Dirígase a <https://classroom.github.com/>, y si no tiene su sesión iniciada (no ve su foto de perfil en la parte superior derecha), inicie sesión con su cuenta personal de GitHub, que es la misma que usó para el paso 1.
 
 Si no tiene un classroom ya creado en el cual quiera colocar los ejercicios, presione el botón de **New Classroom** para crear uno nuevo y seleccione **uadyfmat** como la organización. El nombre del classroom es libre, pero idealmente hace referencia a su asignatura, por ejemplo "programación-estructurada".
 
