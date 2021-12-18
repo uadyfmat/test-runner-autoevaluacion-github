@@ -20,6 +20,8 @@ Para resolver los ejercicios de programación y poder obtener retroalimentación
 2. Usar Test Runner para probar las soluciones localmente.
 3. Ver en GitHub la auto-evaluación del repositorio.
 
+🎥 Puede referirse a una **[explicación en video](https://youtu.be/e9aIrrjx3kA)** donde se abarcan los pasos, o alternativamente a continuación se describe cada paso.
+
 ### 1. Instalación de Test Runner
 
 Antes de utilizar Test Runner, es necesario realizar lo siguiente:
@@ -185,10 +187,6 @@ Para realizar esto, crea un commit con tus cambios y realiza push a la rama prin
 curl -o- https://raw.githubusercontent.com/uadyfmat/test-runner-autoevaluacion-github/main/resources/test-exercises | bash
 ```
 
-### Explicación en video
-
-De ser necesario, se ofrece un video de explicación para alumnos: <https://youtu.be/e9aIrrjx3kA>
-
 ## <a name="para-profesores">Para profesores</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
 Para aplicar ejercicios de programación a alumnos es necesario realizar lo siguiente:
@@ -199,7 +197,7 @@ Para aplicar ejercicios de programación a alumnos es necesario realizar lo sigu
 4. Compartir el assignment con los alumnos.
 5. Al momento de evaluar, ver ejercicios correctos de cada alumno.
 
-A continuación se describe el proceso a seguir por cada paso. Alternativamente, igual puede referirse a esta explicación en video: <https://youtu.be/roAd5zSw-Os>
+🎥 Puede referirse a una **[explicación en video](https://youtu.be/roAd5zSw-Os)** donde se abarcan los pasos, o alternativamente a continuación se describe cada paso.
 
 ### 1. Crear el repositorio de ejercicios
 
@@ -249,7 +247,7 @@ Por cada carpeta de ejercicio (que en este caso es 03-palindromos de ejemplo) as
 
 Para crear los directorios y archivos, puede utilizar la interfaz gráfica de GitHub o bien clonar el repositorio y usar su editor de texto de preferencia. **Nosotros recomendamos usar la interfaz gráfica de GitHub**. Todos los cambios se deben hacer sobre la rama principal: `main`.
 
-En el [video de explicación](https://youtu.be/roAd5zSw-Os) puede ver una demostración de cómo se crean los ejercicios usando la interfaz gráfica de GitHub.
+En el **[video de explicación](https://youtu.be/roAd5zSw-Os)** puede ver una demostración de cómo se crean los ejercicios usando la interfaz gráfica de GitHub.
 
 Tras añadir los ejercicios, el repositorio se debe ver como el ejemplo [`uadyfmat/ejemplo-progr-estructurada-u1`](https://github.com/uadyfmat/ejemplo-progr-estructurada-u1). Es correcto que el workflow esté fallando, tras que el alumno añada sus soluciones debe pasar.
 
