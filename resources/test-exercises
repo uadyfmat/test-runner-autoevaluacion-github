@@ -1,33 +1,84 @@
 #!/bin/bash
 
-EXERCISE_DIRECTORIES=$(ls | grep -E "^[0-9]{2}-.+$")
-RESULTS_FILE=results.txt
-EXERCISES_LIST=exercises_list.txt
+# Description:
+# Given a directory, evaluate every subdirectory in its root level
+# using test-runner. This assumes that every subdir is a valid
+# test-runner exercise.
+#
+# Exit codes:
+# 0:
+#   - All exercises are correctly solved and no spec.inout was modified.
+# 1:
+#   - At least one spec.inout was modified.
+#   OR
+#   - At least one exercise is NOT correctly solved.
+#
+# Parameters:
+# $1: Target directory (its sub dirs at root level are evaluated).
+#
+# Example invocation:
+# ./test-exercises /path/to/dir/of/dir/exercises
 
-# For the colors see:
-# https://stackoverflow.com/a/5947802/12591546
+
+# Evaluate each exercise using test-runner
+# ----------------------------------------
+
+# Colors, see: https://stackoverflow.com/a/5947802/12591546
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 RESET_COLOR='\033[0m'
 
-directories=0
-exercises=0
+EXERCISE_DIRECTORIES=$(ls | grep -E "^[0-9]{2}-.+$")
+EXERCISES_LIST=exercises_list.txt
+RESULTS_FILE=results.txt
 
-for i in ${EXERCISE_DIRECTORIES};
-do
-  directories=$((directories + 1))
-  test-runner -e ${i} >> ${RESULTS_FILE}
+exercises_total=0
+exercises_correct=0
+
+for DIR in ${EXERCISE_DIRECTORIES}; do
+  exercises_total=$((exercises_total + 1))
+  test-runner -e ${DIR} >> ${RESULTS_FILE}
 
   if [ $? -eq 0 ]
   then
-    exercises=$((exercises + 1))
-    printf '%s %s\n' "${GREEN}PASANDO${RESET_COLOR} :" "${i}" >> ${EXERCISES_LIST}
+    exercises_correct=$((exercises_correct + 1))
+    printf '%s %s\n' "${GREEN}PASANDO${RESET_COLOR} :" "${DIR}" >> ${EXERCISES_LIST}
   else
-    printf '%s %s\n' "${RED}FALLANDO${RESET_COLOR}:" "${i}" >> ${EXERCISES_LIST}
+    printf '%s %s\n' "${RED}FALLANDO${RESET_COLOR}:" "${DIR}" >> ${EXERCISES_LIST}
   fi
-done;
+done
 
-echo -e "\nEjercicios correctos: $exercises/$directories"
+
+# Cheat detection
+# ---------------
+
+# Present in the latest commit in current branch, not present in the first commit.
+COMMIT_RANGE=$(git rev-list --all --max-parents=0 | tail -1)..$(git rev-list HEAD -1)
+
+# List names of modified spec.inout files according to the commit range.
+MODIFIED_SPECINOUT_FILES=$(git diff --name-only --diff-filter=M \
+  "${COMMIT_RANGE}" '*spec.inout')
+
+if [ -n "${MODIFIED_SPECINOUT_FILES}" ]; then
+  printf '\n'
+  printf "${RED}+---------------------------------------------------------------+\n"
+  printf "${RED}|  Se han modificado archivos de casos de prueba (spec.inout).  |\n"
+  printf "${RED}|  Los resultados de evaluación pueden ser imprecisos.          |\n"
+  printf "${RED}+---------------------------------------------------------------+\n"
+
+  printf "${RED}Archivos spec.inout modificados:\n"
+  for MODIFIED_SPECINOUT_FILE in ${MODIFIED_SPECINOUT_FILES}; do
+      printf "${RED}- ${MODIFIED_SPECINOUT_FILE}\n"
+  done
+  printf "${RESET_COLOR}"
+  printf '\n'
+fi
+
+
+# Results output
+# --------------
+
+echo -e "\nEjercicios correctos: $exercises_correct/$exercises_total"
 
 echo -e "\nListado de ejercicios"
 echo "====================="
@@ -38,12 +89,22 @@ echo -e "\nCasos de prueba"
 echo "==============="
 cat ./${RESULTS_FILE}
 
+
 # Clean
+# -----
+
 rm -f ./${RESULTS_FILE}
 rm -f ./${EXERCISES_LIST}
 
-if [ $exercises -eq $directories ]
-then
+
+# Exit
+# ----
+
+if [ -n "${MODIFIED_SPECINOUT_FILES}" ]; then
+  exit 1
+fi
+
+if [ $exercises_correct -eq $exercises_total ]; then
   exit 0
 else
   exit 1
