@@ -169,7 +169,9 @@ Cada directorio de ejercicio tiene la siguiente estructura:
 
 Para el archivo de solución puedes elegir entre alguno de [estos lenguajes](https://github.com/uadyfmat/test-runner#supported-languages).
 
-Tras agregar una solución, Test Runner ya corre los casos de prueba del spec.inout y ofrecer retroalimentación acerca de cuáles pasan y cuáles no.
+Tras agregar una solución, Test Runner puede corre los casos de prueba del spec.inout contra la solución y ofrecer retroalimentación acerca de cuáles pasan y cuáles no.
+
+Aquí hay un ejemplo de un repositorio de ejercicios cuyas soluciones son correctas:<br/> <https://github.com/uadyfmat/programacion-estructurada-unidad-1-HerCerM>
 
 ### 3. Auto-evaluación de los ejercicios en GitHub
 
@@ -332,8 +334,7 @@ Luego, expanda el apartado titulado **Run bash test-exercises** para ver el resu
     <img src="./resources/images/gh_autograding_output.png" width="675px" />
 </p>
 
-El repositorio de las capturas de pantalla lo puede encontrar en el siguiente URL, donde podrá ver el resultado de la auto-evaluación y así tener una noción más práctica de cómo encontrarlo.
-
+El repositorio de las capturas de pantalla lo puede encontrar en el siguiente URL, donde podrá ver el resultado de la auto-evaluación y así tener una noción más práctica de cómo encontrarlo.<br/>
 <https://github.com/uadyfmat/programacion-estructurada-unidad-1-HerCerM>
 
 ## <a name="para-desarrolladores">Para desarrolladores</a> [&#8593;](#test-runner-auto-evaluación-con-github)
