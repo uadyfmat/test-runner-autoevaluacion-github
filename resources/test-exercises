@@ -16,7 +16,7 @@ exercises=0
 for i in ${EXERCISE_DIRECTORIES};
 do
   directories=$((directories + 1))
-  test-runner -e -s ${i} >> ${RESULTS_FILE}
+  test-runner -e ${i} >> ${RESULTS_FILE}
 
   if [ $? -eq 0 ]
   then
