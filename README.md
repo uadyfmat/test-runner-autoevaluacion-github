@@ -11,6 +11,7 @@ Aquí se describe lo que los alumnos, profesores y desarrolladores necesitan sab
 - [Documentación para **alumnos**](#para-alumnos)
 - [Documentación para **profesores**](#para-profesores)
 - [Documentación para **desarrolladores**](#para-desarrolladores)
+- [Problemas frecuentes](#problemas)
 
 ## <a name="para-alumnos">Para alumnos</a> [&#8593;](#test-runner-auto-evaluación-con-github)
 
@@ -141,6 +142,8 @@ Es posible que sea necesario modificar la ruta en `"commandline"` y `"icon"`, en
 
 </details>
 
+Una vez analizado el Json con la configuración anterior les recomendamos analizar la linea `defaultProfile` debido a que esta tiene que considir con el gui que acaban de agregar del `git bash` para que al momento de abrir windows terminal este pueda abrir en primera instancia este, para que asi puedan utilizar los comando correspondientes.
+
 ### 2. Uso de Test Runner
 
 Teniendo el repositorio de ejercicio propio tras haber aceptado un assignment de GitHub Classroom, es necesario clonarlo con Git y abrirlo en algún editor de texto. Se sugiere [Visual Studio Code](https://code.visualstudio.com/).
@@ -170,6 +173,8 @@ Cada directorio de ejercicio tiene la siguiente estructura:
 Para el archivo de solución puedes elegir entre alguno de [estos lenguajes](https://github.com/uadyfmat/test-runner#supported-languages).
 
 Tras agregar una solución, Test Runner puede corre los casos de prueba del spec.inout contra la solución y ofrecer retroalimentación acerca de cuáles pasan y cuáles no.
+
+Cabe resaltar que el test-runner busca tener un match exacto, es decir, que la salida que ustedes obtengan, debe ser exactamente igual a la salida esperada, debido a que su solución da `65.0` y el test-runner espera `65` este marcará como erronia sus solución.
 
 Aquí hay un ejemplo de un repositorio de ejercicios cuyas soluciones son correctas:<br/> <https://github.com/uadyfmat/programacion-estructurada-unidad-1-HerCerM>
 
@@ -294,13 +299,11 @@ En la segunda vista es necesario indicar la plantilla del assignment. Se selecci
     <img src="./resources/images/gh_classroom_create_view_2.png" width="650px" />
 </p>
 
-
 En la última vista sólo se presiona el botón de crear el assignment.
 
 <p align="center">
     <img src="./resources/images/gh_classroom_create_view_3.png" width="650px" />
 </p>
-
 
 ### 4. Compartir el assignment con los alumnos
 
@@ -368,3 +371,50 @@ Por otro lado tenemos los `steps` los cuales son pieza fundamental en esto ya qu
 [test-exercises](./resources/test-exercises) es un script de Bash utilizado para ejecutar Test Runner sobre todos los ejercicios de un repositorio; es usado por el [workflow](<(https://github.com/uadyfmat/test-runner-plantilla-base/blob/main/.github/workflows/default.yml)>) de la plantilla base de ejercicios.
 
 Con el objetivo de honrar el principio de _single source of truth_, este script se encuentra únicamente en este repositorio y los demás que lo utilizan lo descargan por medio de `curl`.
+
+## <a name="problemas">Problemas frecuentes</a> [&#8593;](#test-runner-auto-evaluación-con-github)
+
+Al realizar pruebas de este sistema con un grupo de estudiantes, nos encontramos con un conjunto de problemas a los cuales le logramos encontrar una solución. A continuación, le presentamos los problemas encontrados y sus soluciones.
+
+### 1. Instalación de NodeJs
+
+En ciertos casos al momento de instalar NodeJs usando la terminal de ZSH, esta no las guarda en las variables de entorno y nosotros manualmente debemos escribir el path npm para asi poder utilizar NodeJs de forma global.
+
+Para más información les invitamos visitar el siguiente [`Enlace`](https://dev.to/emmanuellesoy/como-configurar-un-path-global-de-npm-con-zsh-300d) el cual presenta un tutorial basta claro a la sulución de este problema.
+
+Notas a destacar:
+
+- En el tutorial anteriormente mensionado como que se debe de crear una carpeta en raíz llamada node-global sin embargo en ciertos casos, ustedes pueden ya tenerla creada o llamada como node-gyp, pero como pueden saber si tiene o no esta carpeta, no se alarmen, el proceso es bastante sencillo, solo tiene que hacer los siguiente, en primera instacia debes de escribir `cd` para que te lleve a tu raiz, una ves hecho esto sigue los siguientes comandos para saber si tienes alguna carpeta de global de node o no.
+
+```text
+cd
+ls -a | grep -E "npm"
+```
+
+Una vez hecho esto, obtendras una resultado como el siguiente:
+
+<p align="center">
+    <img src="./resources/images/npm-global.jpg" width="675px" />
+</p>
+
+En mi caso podemos ver que mi carpeta global es .nppm-global entonces puedo seguir con todos los pasos de tutorial despúes de ese apartado de crear la carpeta, en dado caso a ustedes tengan .npm-gyp, sigan el proceso solo que cambiando npm-global por npm-gyp.
+
+Para evitar la mayor cantidad de problemas con la instalación, se les recomienda utilizar un gestor paquetes como chocolatey en windows, nvm para Linux y Brew para MacOs, en cualquiera de los casos puedes visitar el siguiente [enlace](https://nodejs.org/es/download/package-manager) la cual proviene de la misma documentación de NodeJs.
+
+### 2. Problemas con las salidas
+
+Anteriormente se les a comentado, sin embargo no esta de más recordarselos, al momento crear alguna solución para alguna actividad, deben de tener mucho cuidado al momento de obterner sus outputs debedido a que si el problema debe de espera una salida entera como `65` y sus solución esta imprimiendo `65.0` esta estará marcado un error, debido a que el sistema trabaja en base a encontrar una relacion entre sus salida y la salida esperada, es por ello que hacemos bastante incapie en esto para evitar que obtengan una mala calificación o algún problema en sus resultados.😉
+
+### 3. Nombre del archivo Solution.ext
+
+En ciertas ocasiones al momento de subir nuestra solución se nos puede pasar poner el nombre correcto, a que nos referimos con esto, el test-runner al momento de buscar entre las carpetas buscar un archivo llamado `Solution.tuExtencion` y como podemos ver `Solution` esta escrito con una `S` mayúscula, entonces si no lo escriben así el test-runner no detectará tu solución y este estará marcando error.
+
+### 4. Terminal a utilizar
+
+Al momento de utilizar nuestras terminales hay que tener algo de cuidado, debido a que al menos en windows podemos terner hasta 3 terminales las cuales ya vienen instaladas por defecto, sin embargo la que más nos interesa es la que te acabamos de instalar, llamada windows terminal.
+
+<p align="center">
+    <img src="./resources/images/windows-terminal.jpg" width="675px" />
+</p>
+
+Ya que esta nos facilitara bastante a poder analizar bien las salidas obtenidas por el test-runner.
