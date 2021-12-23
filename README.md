@@ -21,7 +21,7 @@ Para resolver los ejercicios de programación y poder obtener retroalimentación
 2. Usar Test Runner para probar las soluciones localmente.
 3. Ver en GitHub la auto-evaluación del repositorio.
 
-🎥 Puede referirse a una **[explicación en video](https://youtu.be/e9aIrrjx3kA)** donde se abarcan los pasos, o alternativamente a continuación se describe cada paso.
+🎥 Puede referirse a una **[explicación en video](https://youtu.be/YV7xHDyxMRs)** donde se abarcan los pasos, o alternativamente a continuación se describe cada paso.
 
 ### 1. Instalación de Test Runner
 
